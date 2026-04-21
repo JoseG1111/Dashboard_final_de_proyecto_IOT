@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dashboard-iot-seguridad-perimetral
+    runtime: static
+    plan: free
+    autoDeployTrigger: commit
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 24.14.1
+      - key: SKIP_INSTALL_DEPS
+        value: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
