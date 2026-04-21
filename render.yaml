@@ -2,7 +2,7 @@ services:
   - type: web
     name: dashboard-iot-seguridad-perimetral
     runtime: static
-    plan: free
+   # plan: free
     autoDeployTrigger: commit
     buildCommand: npm ci && npm run build
     staticPublishPath: ./dist
